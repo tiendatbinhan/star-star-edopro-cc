@@ -25,28 +25,6 @@ function s.initial_effect(c)
     c:RegisterEffect(e2)
 end
 
---Search effect
-
-function s.addfilter(c)
-    return c:IsAbleToHand() and c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM) and c:IsType(TYPE_MONSTER) and c:IsAttribute(ATTRIBUTE_FIRE)
-end
-
-function s.addtg(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
-    if chk == 0 then
-        return Duel.IsExistingMatchingCard(aux.NecroValleyFilter(s.addfilter), tp, LOCATION_DECK + LOCATION_GRAVE, 0, 1, nil)
-    end
-    Duel.SetOperationInfo(0, CATEGORY_FLIP + CATEGORY_SEARCH, nil, 1, tp, LOCATION_DECK + LOCATION_GRAVE)
-end
-
-function s.addop(e, tp, eg, ep, ev, re, r, rp)
-    if not Duel.IsExistingMatchingCard(aux.NecroValleyFilter(s.addfilter), tp, LOCATION_DECK + LOCATION_GRAVE, 0, 1, nil) then return end
-    Duel.Hint(HINT_SELECTMSG, tp, HINTMSG_ATOHAND)
-    local tc = Duel.SelectMatchingCard(tp, aux.NecroValleyFilter(s.addfilter), tp, LOCATION_DECK + LOCATION_GRAVE, 0, 1, 1, nil)
-    Duel.SendtoHand(tc, tp, REASON_EFFECT)
-    Duel.ConfirmCards(1-tp, tc)
-    Duel.ShuffleDeck(tp)
-end
-
 --Self-set effect
 
 function s.settg(e, tp, eg, ep, ev, re, r, rp, chk)
