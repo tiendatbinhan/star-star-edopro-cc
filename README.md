@@ -1,48 +1,56 @@
-# "☆Star-Star☆" Archetype in EDOPro
-This repository is for "☆Star-Star☆" custom cards in EDOPro. The original cards are from [Omegaplayer00](https://www.deviantart.com/omegaplayer00)
+# ☆Star-Star☆ for EDOPro
+
+Welcome to the "☆Star-Star☆" archetype custom cards repository for EDOPro. These cards, created by [Omegaplayer00](https://www.deviantart.com/omegaplayer00), can be integrated into your EDOPro game.
 
 ## Installation
 
-### Repository-based installation
+### Repository-based Installation
 
-Open the following files:
+To install via repository, follow these steps:
 
-```
-path-to-edopro/config/configs.json
-```
+1. Open the `user-configs.json` file located in:
+   ```
+   path-to-edopro/config/user-configs.json
+   ```
+   If this file does not exist, create one. The file should be structured as shown below:
+   ```json
+   {
+       "repos": [
+           {
+               "url": "github_link_here",
+               "repo_name": "name_that_will_be_used_in_edopro's_repository_list",
+               "repo_path": "path_where_the_contents_will_be_saved",
+               "should_update": true,
+               "should_read": true
+           }
+       ]
+   }
+   ```
 
-You will see a list of repository there, like so:
+2. Append the following lines to the `repos` list:
+   ```json
+   {
+       "url": "https://github.com/tiendatbinhan/star-star-edopro-cc.git",
+       "repo_name": "☆Star-Star☆ for EDOPro",
+       "repo_path": "./repositories/star-star-edopro-cc",
+       "should_update": true,
+       "should_read": true
+   }
+   ```
 
-```json
-{
-	"repos": [
-		{
-			"url": "https://github.com/ProjectIgnis/DeltaPuppetOfStrings",
-			"repo_name": "Project Ignis updates",
-			"repo_path": "./repositories/delta-puppet",
-			"has_core": true,
-			"core_path": "bin",
-			"data_path": "",
-			"script_path": "script",
-			"should_update": true,
-			"should_read": true
-		},
-		{
-			"url": "https://github.com/ProjectIgnis/LFLists",
-			"repo_name": "Forbidden & Limited Card Lists",
-			"repo_path": "./repositories/lflists",
-			"lflist_path": ".",
-			"should_update": true,
-			"should_read": true
-		},
-		{
-			"url": "https://github.com/ProjectIgnis/Puzzles",
-			"repo_name": "Project Ignis puzzles",
-			"repo_path": "./puzzles/Canon collection",
-			"should_update": true,
-			"should_read": true
-		}
-	],
-    ...
-}
-```
+For additional instruction, refer to Naim's instructions [here](https://github.com/ProjectIgnis/CardScripts/wiki/Enviroment-Setup-and-required-programs#keeping-your-files-in-a-repository).
+
+### Local Installation
+
+To install locally:
+
+1. Clone the repository.
+2. Archive the `pics`, `script`, and `cc-starstar-from-omegaplayer.cdb` files into a `.zip` file.
+3. Move the `.zip` file to the following directory:
+   ```
+   path-to-edopro/expansions
+   ```
+
+## Bug Reporting
+
+If you encounter any bugs with the cards, please open an issue on this repository. We appreciate your feedback and contributions to improve the experience.
