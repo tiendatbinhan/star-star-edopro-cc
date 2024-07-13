@@ -1,6 +1,7 @@
 --☆Star-Star☆ Starblaze Singer
 local s,id = GetID()
 Duel.LoadScript("custom_const.lua")
+Duel.LoadScript("helper_function.lua")
 
 function s.initial_effect(c)
     Pendulum.AddProcedure(c)
@@ -17,15 +18,9 @@ function s.initial_effect(c)
     e1:SetOperation(s.penop)
     c:RegisterEffect(e1)
 
-    local e2 = Effect.CreateEffect(c)
+    local e2 = StarStar.AddNonUnionPendulumProcedure(c)
     e2:SetDescription(aux.Stringid(id, 1))
-    e2:SetCategory(CATEGORY_SPECIAL_SUMMON + CATEGORY_TODECK)
-    e2:SetType(EFFECT_TYPE_FIELD + EFFECT_TYPE_QUICK_O)
-    e2:SetCode(EVENT_FREE_CHAIN)
     e2:SetCountLimit(1, {id, 1})
-    e2:SetRange(LOCATION_HAND)
-    e2:SetTarget(s.sptg)
-    e2:SetOperation(s.spop)
     c:RegisterEffect(e2)
 
     local e3 = Effect.CreateEffect(c)
@@ -81,33 +76,6 @@ function s.penop(e, tp, eg, ep, ev, re, r, rp)
     then
         Duel.ShuffleDeck(tp)
         Duel.Draw(tp, 1, REASON_EFFECT)
-    end
-end
-
---Special Summon itself
-function s.spfilter(c)
-    return c:IsFaceup() and c:IsSetCard(SET_STARSTAR) and c:IsAbleToDeck()
-end
-
-function s.sptg(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
-    local c = e:GetHandler()
-    if chk == 0
-    then
-        return c:IsCanBeSpecialSummoned(e, 0, tp, false, false, POS_FACEUP, tp) and Duel.IsExistingMatchingCard(s.spfilter, tp, LOCATION_MZONE, 0, 1, nil)
-    end
-    Duel.SetOperationInfo(0, CATEGORY_SPECIAL_SUMMON + CATEGORY_TODECK, c, 1, tp, 0)
-end
-
-function s.spop(e, tp, eg, ep, ev, re, r, rp)
-    local c = e:GetHandler()
-    if not (c:IsCanBeSpecialSummoned(e, SUMMON_TYPE_SPECIAL, tp, false, false, POS_FACEUP, tp) and Duel.IsExistingMatchingCard(s.spfilter, tp, LOCATION_MZONE, 0, 1, nil))
-    then
-        return
-    end
-    Duel.Hint(HINT_SELECTMSG, tp, HINTMSG_TODECK)
-    local gc = Duel.SelectMatchingCard(tp, s.spfilter, tp, LOCATION_MZONE, 0, 1, 1, nil)
-    if Duel.SendtoDeck(gc, tp, SEQ_DECKSHUFFLE, REASON_EFFECT) > 0 then
-        Duel.SpecialSummon(c, SUMMON_TYPE_SPECIAL, tp, tp, false, false, POS_FACEUP)
     end
 end
 
