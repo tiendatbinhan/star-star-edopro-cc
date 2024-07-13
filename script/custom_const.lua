@@ -1,0 +1,1 @@
+SET_STARSTAR = 0xa00

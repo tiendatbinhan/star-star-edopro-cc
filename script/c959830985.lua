@@ -1,6 +1,7 @@
 --☆Star-Star☆ Cinder
 local s, id = GetID()
-local SET_STARSTAR = 0xa00
+Duel.LoadScript("custom_const.lua")
+Duel.LoadScript("helper_function.lua")
 
 function s.initial_effect(c)
     local e1 = Effect.CreateEffect(c)
@@ -9,8 +10,8 @@ function s.initial_effect(c)
     e1:SetType(EFFECT_TYPE_SINGLE + EFFECT_TYPE_TRIGGER_F)
     e1:SetRange(LOCATION_MZONE)
     e1:SetCode(EVENT_FLIP)
-    e1:SetTarget(s.addtg)
-    e1:SetOperation(s.addop)
+    e1:SetTarget(StarStar.CreateFlipEffectTarget(ATTRIBUTE_FIRE))
+    e1:SetOperation(StarStar.CreateFlipEffectOperation(ATTRIBUTE_FIRE))
     c:RegisterEffect(e1)
 
     local e2 = Effect.CreateEffect(c)

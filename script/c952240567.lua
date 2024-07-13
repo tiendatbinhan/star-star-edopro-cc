@@ -1,6 +1,6 @@
 --☆Star-Star☆ StarShip
 local s,id = GetID()
-local SET_STARSTAR = 0xa00
+Duel.LoadScript("custom_const.lua")
 
 function s.initial_effect(c)
     local e1 = Effect.CreateEffect(c)
