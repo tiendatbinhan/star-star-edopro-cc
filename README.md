@@ -45,7 +45,7 @@ For additional instruction, refer to Naim's instructions [here](https://github.c
 To install locally:
 
 1. Clone the repository.
-2. Archive the `pics`, `script`, and `cc-starstar-from-omegaplayer.cdb` files into a `.zip` file.
+2. Archive the `pics`, `script`, `strings.conf`, and `cc-starstar-from-omegaplayer.cdb` files into a `.zip` file.
 3. Move the `.zip` file to the following directory:
    ```
    path-to-edopro/expansions
