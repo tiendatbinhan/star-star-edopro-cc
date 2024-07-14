@@ -23,7 +23,9 @@ function StarStar.CreateFlipEffectOperation(attribute)
         local tc = Duel.SelectMatchingCard(tp, aux.NecroValleyFilter(StarStar.FlipEffectFilter), tp, LOCATION_DECK + LOCATION_GRAVE, 0, 1, 1, nil, attribute)
         Duel.SendtoHand(tc, tp, REASON_EFFECT)
         Duel.ConfirmCards(1-tp, tc)
-        Duel.ShuffleDeck(tp)
+        if tc:GetFirst():IsPreviousLocation(LOCATION_DECK) then
+            Duel.ShuffleDeck(tp)
+        end
     end
 end
 
