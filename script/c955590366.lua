@@ -1,6 +1,6 @@
 --☆Star-Star☆ StarPet Dragon
 
-local c, id = GetID()
+local s, id = GetID()
 Duel.LoadScript("custom_const.lua")
 Duel.LoadScript("helper_function.lua")
 
