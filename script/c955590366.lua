@@ -6,7 +6,7 @@ Duel.LoadScript("helper_function.lua")
 
 function s.initial_effect(c)
     Pendulum.AddProcedure(c)
-    aux.AddUnionProcedure(c, aux.FilterBoolFunction(Card.IsSetCard, SET_STARSTAR), true)
+    aux.AddUnionProcedure(c, aux.FilterBoolFunction(Card.IsSetCard, SET_STARSTAR), false)
 
     local e1 = Effect.CreateEffect(c)
     e1:SetDescription(aux.Stringid(id, 0))
