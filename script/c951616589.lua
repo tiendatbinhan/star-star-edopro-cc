@@ -38,7 +38,7 @@ function s.target(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
     then
         return Duel.IsExistingTarget(s.filter, tp, LOCATION_MZONE, 0, 1, nil)
         and Duel.IsExistingTarget(s.filter, tp, LOCATION_PZONE, 0, 1, nil)
-        and Duel.GetMZoneCount(tp) > 0
+        and Duel.GetLocationCount(tp, LOCATION_MZONE) > 0
     end
 
     Duel.Hint(HINT_SELECTMSG, tp, HINTMSG_SPSUMMON)
@@ -47,7 +47,7 @@ function s.target(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
     local pencard = Duel.SelectTarget(tp, s.filter, tp, LOCATION_MZONE, 0, 1, 1, nil)
     local targets = sumcard:Merge(pencard)
     Duel.SetTargetCard(targets)
-    Duel.SetOperationInfo(0, CATEGORY_SPECIAL_SUMMON, sumcard, count, target_player, target_param)
+    Duel.SetOperationInfo(0, CATEGORY_SPECIAL_SUMMON, sumcard, 10, tp, tp)
 end
 
 function s.operation(e, tp, eg, ep, ev, re, r, rp)
