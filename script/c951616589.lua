@@ -26,7 +26,7 @@ end
 -- end
 
 function s.filter(c)
-    return c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM) and c:IsType(TYPE_MONSTER) and not c:IsForbidden()
+    return c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM) and c:IsType(TYPE_MONSTER)
 end
 
 function s.target(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
@@ -37,7 +37,6 @@ function s.target(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
     if chk == 0
     then
         local available_zone, _ = Duel.GetLocationCount(tp, LOCATION_MZONE)
-        Debug.Message(available_zone)
         return Duel.IsExistingTarget(s.filter, tp, LOCATION_MZONE, 0, 1, nil) and Duel.IsExistingTarget(s.filter, tp, LOCATION_PZONE, 0, 1, nil) and available_zone > 0
     end
 
