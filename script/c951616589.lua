@@ -6,24 +6,24 @@ function s.initial_effect(c)
     local e1 = Effect.CreateEffect(c)
     e1:SetCategory(CATEGORY_SPECIAL_SUMMON)
     e1:SetType(EFFECT_TYPE_ACTIVATE)
-    e1:SetProperty(EFFECT_FLAG_CARD_TARGET+EFFECT_FLAG_LIMIT_ZONE)
-    e1:SetValue(s.zones)
+    e1:SetProperty(EFFECT_FLAG_CARD_TARGET)
+    -- e1:SetValue(s.zones)
     e1:SetCode(EVENT_FREE_CHAIN)
     e1:SetTarget(s.target)
     e1:SetOperation(s.operation)
     c:RegisterEffect(e1)
 end
 
-function s.zones(e,tp,eg,ep,ev,re,r,rp)
-	local zone=0xff
-	if Duel.IsDuelType(DUEL_SEPARATE_PZONE) then return zone end
-	local p0=Duel.CheckLocation(tp,LOCATION_PZONE,0)
-	local p1=Duel.CheckLocation(tp,LOCATION_PZONE,1)
-	if p0==p1 then return zone end
-	if p0 then zone=zone-0x1 end
-	if p1 then zone=zone-0x10 end
-	return zone
-end
+-- function s.zones(e,tp,eg,ep,ev,re,r,rp)
+-- 	local zone=0xff
+-- 	if Duel.IsDuelType(DUEL_SEPARATE_PZONE) then return zone end
+-- 	local p0=Duel.CheckLocation(tp,LOCATION_PZONE,0)
+-- 	local p1=Duel.CheckLocation(tp,LOCATION_PZONE,1)
+-- 	if p0==p1 then return zone end
+-- 	if p0 then zone=zone-0x1 end
+-- 	if p1 then zone=zone-0x10 end
+-- 	return zone
+-- end
 
 function s.filter(c)
     return c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM) and c:IsType(TYPE_MONSTER) and not c:IsForbidden()
