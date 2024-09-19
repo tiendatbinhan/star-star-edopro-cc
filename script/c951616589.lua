@@ -7,26 +7,18 @@ function s.initial_effect(c)
     e1:SetCategory(CATEGORY_SPECIAL_SUMMON)
     e1:SetType(EFFECT_TYPE_ACTIVATE)
     e1:SetProperty(EFFECT_FLAG_CARD_TARGET)
-    -- e1:SetValue(s.zones)
     e1:SetCode(EVENT_FREE_CHAIN)
     e1:SetTarget(s.target)
     e1:SetOperation(s.operation)
     c:RegisterEffect(e1)
 end
 
--- function s.zones(e,tp,eg,ep,ev,re,r,rp)
--- 	local zone=0xff
--- 	if Duel.IsDuelType(DUEL_SEPARATE_PZONE) then return zone end
--- 	local p0=Duel.CheckLocation(tp,LOCATION_PZONE,0)
--- 	local p1=Duel.CheckLocation(tp,LOCATION_PZONE,1)
--- 	if p0==p1 then return zone end
--- 	if p0 then zone=zone-0x1 end
--- 	if p1 then zone=zone-0x10 end
--- 	return zone
--- end
-
 function s.filter(c)
     return c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM) and c:IsType(TYPE_MONSTER)
+end
+
+function s.spfilter(c, e, tp)
+    return c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM) and c:IsType(TYPE_MONSTER) and c:IsCanBeSpecialSummoned(e, 0, tp, false, false, POS_FACEUP_ATTACK, tp)
 end
 
 function s.target(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
@@ -37,11 +29,11 @@ function s.target(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
     if chk == 0
     then
         local available_zone, _ = Duel.GetLocationCount(tp, LOCATION_MZONE)
-        return Duel.IsExistingTarget(s.filter, tp, LOCATION_MZONE, 0, 1, nil) and Duel.IsExistingTarget(s.filter, tp, LOCATION_PZONE, 0, 1, nil) and available_zone > 0
+        return Duel.IsExistingTarget(s.filter, tp, LOCATION_MZONE, 0, 1, nil) and Duel.IsExistingTarget(s.spfilter, tp, LOCATION_PZONE, 0, 1, nil, e, tp) and available_zone > 0
     end
 
     Duel.Hint(HINT_SELECTMSG, tp, HINTMSG_SPSUMMON)
-    local sumcard = Duel.SelectTarget(tp, s.filter, tp, LOCATION_PZONE, 0, 1, 1, nil)
+    local sumcard = Duel.SelectTarget(tp, s.spfilter, tp, LOCATION_PZONE, 0, 1, 1, nil, e, tp)
     Duel.Hint(HINT_SELECTMSG, tp, HINTMSG_TARGET)
     local pencard = Duel.SelectTarget(tp, s.filter, tp, LOCATION_MZONE, 0, 1, 1, nil)
     local targets = sumcard:Merge(pencard)
