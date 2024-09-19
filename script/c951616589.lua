@@ -14,7 +14,7 @@ function s.initial_effect(c)
 end
 
 function s.filter(c)
-    return c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM) and c:IsType(TYPE_MONSTER)
+    return c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM)
 end
 
 function s.spfilter(c, e, tp)
