@@ -14,11 +14,11 @@ function s.initial_effect(c)
 end
 
 function s.filter(c)
-    return c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM)
+    return c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM) and c:IsType(TYPE_MONSTER)
 end
 
 function s.spfilter(c, e, tp)
-    return c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM) and c:IsType(TYPE_MONSTER) and c:IsCanBeSpecialSummoned(e, 0, tp, false, false, POS_FACEUP_ATTACK, tp)
+    return c:IsSetCard(SET_STARSTAR) and c:IsType(TYPE_PENDULUM) and c:IsCanBeSpecialSummoned(e, 0, tp, false, false, POS_FACEUP_ATTACK, tp)
 end
 
 function s.target(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
