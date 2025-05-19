@@ -38,7 +38,7 @@ To install via repository, follow these steps:
    }
    ```
 
-For additional instruction, refer to Naim's instructions [here](https://github.com/ProjectIgnis/CardScripts/wiki/Enviroment-Setup-and-required-programs#keeping-your-files-in-a-repository).
+For additional instruction, refer to Naim's instructions [here](https://github.com/ProjectIgnis/CardScripts/wiki/2-%E2%80%90-Required-programs-and-enviroment-setup).
 
 ### Local Installation
 
