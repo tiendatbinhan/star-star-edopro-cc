@@ -2,7 +2,7 @@
 name: New card suggestion
 about: Create a suggestion of new card
 title: "[CARD SUGGESTION]"
-labels: ''
+labels: enhancement
 assignees: tiendatbinhan
 
 ---
@@ -41,6 +41,7 @@ Explain why this card is needed:
 - What role does it fill in the archetype?  
 - What problem does it solve (e.g., consistency, recovery, removal)?  
 - How does it improve gameplay, synergy, or strategic options?
+- (Optional) If the archetype has a lore, how does this card contribute to or reflect that lore?
 
 **Example Combo**
 (Optional) Show a possible combo or sequence that involves this card. Highlight how it interacts with other cards and supports the deck's win condition.
