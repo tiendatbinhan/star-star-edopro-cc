@@ -1,6 +1,6 @@
 ---
 name: New card suggestion
-about: Create a suggestion of new card
+about: Use this template to propose a new custom card for the repository
 title: "[CARD SUGGESTION]"
 labels: enhancement
 assignees: tiendatbinhan
