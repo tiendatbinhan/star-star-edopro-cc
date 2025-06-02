@@ -43,4 +43,4 @@ Explain why this card is needed:
 - How does it improve gameplay, synergy, or strategic options?
 
 **Example Combo**
-[Optional] Show a possible combo or sequence that involves this card. Highlight how it interacts with other cards and supports the deck's win condition.
+(Optional) Show a possible combo or sequence that involves this card. Highlight how it interacts with other cards and supports the deck's win condition.
