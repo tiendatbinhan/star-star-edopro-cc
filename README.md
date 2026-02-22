@@ -1,3 +1,7 @@
+Due to DeviantArt blocked in my country, I'm unable to contribute to this repository. This repo will be archived only. For further contribution, please contact me via Discord `.tovya` or via GitHub.
+
+----
+
 # ☆Star-Star☆ for EDOPro
 
 Welcome to the "☆Star-Star☆" archetype custom cards repository for EDOPro. These cards, created by [Omegaplayer00](https://www.deviantart.com/omegaplayer00), can be integrated into your EDOPro game.
