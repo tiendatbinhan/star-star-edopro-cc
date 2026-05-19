@@ -1,4 +1,8 @@
-> Currently not actively maintained, but accepting issues and PRs.
+## Archived
+
+The card images hosted on DeviantArt by the original creator are no longer available (account deactivated or DMCA takedown). This repository cannot be meaningfully maintained without its primary resource.
+
+If the cards are ever re-hosted elsewhere, feel free to fork and continue.
 
 ----
 
