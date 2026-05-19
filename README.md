@@ -1,4 +1,4 @@
-Due to DeviantArt blocked in my country, I'm unable to contribute to this repository. This repo will be archived only. For further contribution, please contact me via Discord `.tovya` or via GitHub.
+> Currently not actively maintained, but accepting issues and PRs.
 
 ----
 
